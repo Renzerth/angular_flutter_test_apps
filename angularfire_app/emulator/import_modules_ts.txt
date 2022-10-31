@@ -1,0 +1,22 @@
+provideFirebaseApp(() => {
+  const firebaseApp = initializeApp(environment.firebaseConfig)
+  return (firebaseApp);
+}),
+provideAuth(() => {
+  const auth = getAuth();
+  if (!environment.production)
+	connectAuthEmulator(auth, 'http://localhost:9099')
+  return (auth);
+}),
+provideDatabase(() => {
+  const db = getDatabase()
+  if ( !environment.production )
+	connectDatabaseEmulator( db, 'localhost' , 9000 );
+  return ( db );
+
+}),
+provideFirestore( () => {
+  const firestore = getFirestore()
+  if ( !environment.production )
+	connectFirestoreEmulator( firestore, 'localhost' , 8080 );
+  return ( firestore );

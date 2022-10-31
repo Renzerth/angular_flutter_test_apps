@@ -1,0 +1,17 @@
+<h1>Client List</h1>
+
+<ul>
+    <li *ngFor="let entry of clients | async">
+        {{ entry.name }}
+        {{ entry.city }}
+        {{ entry.tel }}
+    </li>
+</ul>
+
+
+<p *ngFor="let entry of clients | async">
+    <B>{{ entry.name }}</B>
+    <B>{{ entry.city }}</B>
+    -------------------<br>
+
+</p>

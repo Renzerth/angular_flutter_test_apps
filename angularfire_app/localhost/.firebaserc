@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fire-base-todo-test"
+  },
+  "targets": {
+    "fire-base-todo-test": {
+      "hosting": {
+        "angularFire": [
+          "fire-base-todo-test"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+
+<router-outlet></router-outlet>
+<ul>
+  <H1>BASE DE DATOS</H1>
+  <li *ngFor="let item of item$ | async">
+    <b>Nombre: {{ item.name }}</b><br>
+  </li>
+</ul>
+
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div class="form-group row">
+      <label for="name">
+          Nombre
+      </label>
+      <input id="name" type="text" formControlName="name">
+  </div>
+  
+  <div class="form-group row">
+      <label for="profesion">
+          Profesion
+      </label>
+      <input id="proffesion" type="text" formControlName="profession">
+  </div>
+  
+  <div class="form-group row">
+      <label for="age">
+          Edad
+      </label>
+      <input id="age" type="number" formControlName="age"> <!-- number predefines the data type that can be entered -->
+  </div>
+  
+  <button class="button" type="submit"> Enviar </button>
+</form>
