@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart'; // cupertino -> no hay problema si es en web. Si es android -> material
 
 // My imports
-import 'base_page.dart';
+import 'package:firebase_auth_form/pages/main_page/base_page.dart';
 
 //import 'catalogo.dart';
 //import 'ventana.dart';

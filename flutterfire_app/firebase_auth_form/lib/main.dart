@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'base_app.dart';
+
+// My imports
+import 'root_widget.dart';
+// import 'package:firebase_auth_form/pages/main_page/base_app.dart';
 
 // void main() => runApp(BaseApp01()); // operador flecha de una instrucción
 

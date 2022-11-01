@@ -1,5 +1,5 @@
 import '../global.dart' as globals;
-import 'package:base01fire/aplicacion/Pantalla01.dart';
+import 'Pantalla01.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutterfire_ui/auth.dart';
@@ -19,7 +19,7 @@ class AuthGate extends StatelessWidget {
             EmailProviderConfiguration(),
             GoogleProviderConfiguration(
                 clientId:
-                    '774752722152-fboslgonm3qisr625rch1dr7338pp45c.apps.googleusercontent.com'),
+                    '1050222499864-53htqhfcetarud64ote5s3v962ln4quq.apps.googleusercontent'),
           ]);
         }
 
@@ -28,7 +28,7 @@ class AuthGate extends StatelessWidget {
         globals.idMail = snapshot.data!.email!;
 
         // Render your application if authenticated
-        return const MyHomePage(title: 'Flutter Demo Home Page');
+        return const Pantalla01(title: 'Esquema General');
       },
     );
   }

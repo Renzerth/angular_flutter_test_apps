@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'imgs/static_images.dart';
+// My imports
+import 'package:firebase_auth_form/imgs/logo/static_images.dart';
+import 'package:firebase_auth_form/pages/catalogue/catalogo.dart';
 
 class BasePage extends StatefulWidget {
   // Se crea la clase. Esta es un StatefulWidget
@@ -84,8 +86,21 @@ class _BasePageState extends State<BasePage> {
                 //   .textTheme
                 //    .headline4, //TextStyle() -> Constructor -> Color/Fontsize/backgroundColor
                 ),
+                const SizedBox(
+                  height: 40, //<-- SEE HERE
+                ),
+              ElevatedButton(
+                child: const Text('Catalogue'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Catalogo()),
+                  );
+                },
+              ),
           ],
         ),
+        
       ),
 
       floatingActionButton: Row(

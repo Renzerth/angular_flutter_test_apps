@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'paginas_productos.dart/pag_tortas.dart';
+
+//My imports
+import 'package:firebase_auth_form/pages/catalogue/products/pag_tortas.dart';
 
 class Catalogo extends StatefulWidget {
+  const Catalogo({super.key});
+
   @override
   State<Catalogo> createState() => _CatalogoState();
 }
