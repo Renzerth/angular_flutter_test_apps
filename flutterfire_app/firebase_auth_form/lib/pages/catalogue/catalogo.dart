@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //My imports
-import 'package:firebase_auth_form/pages/catalogue/products/pag_tortas.dart';
+import 'package:firebase_auth_form/pages/catalogue/products/details.dart';
 
 class Catalogo extends StatefulWidget {
   const Catalogo({super.key});
@@ -32,20 +32,20 @@ class _CatalogoState extends State<Catalogo> {
 
   static const listaPaginas = <Widget>[
     Center(
-      child: PagTortas(producto: 'Tortas'),
+      child: DetailsPage(producto: 'Tortas'),
     ),
     Center(
-      child: PagTortas(
+      child: DetailsPage(
         producto: 'Galletas',
       ),
     ),
     Center(
-      child: PagTortas(
+      child: DetailsPage(
         producto: 'Postres',
       ),
     ),
     Center(
-      child: PagTortas(
+      child: DetailsPage(
         producto: 'Pasteles',
       ),
     ),
@@ -58,7 +58,7 @@ class _CatalogoState extends State<Catalogo> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('TabBar Widget'),
+          title: const Text('Product Details'),
           // ignore: prefer_const_constructors
           bottom: TabBar(
             tabs: listaProductos,

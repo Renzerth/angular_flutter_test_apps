@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LogoImg extends StatelessWidget {
-  const LogoImg({super.key});
+  const LogoImg({super.key, required this.titleString});
+
+  final String titleString;
 
   // static double _elementSize = 30; // conflicts if children is constant
 
@@ -22,7 +24,7 @@ class LogoImg extends StatelessWidget {
           width: 40, //<-- SEE HERE
         ),
 
-        const Text("Contador", style: TextStyle(fontSize: 30.0))
+        Text(titleString, style: const TextStyle(fontSize: 30.0))
       ],
     );
   }

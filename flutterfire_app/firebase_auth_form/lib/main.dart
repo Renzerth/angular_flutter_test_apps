@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:firebase_core/firebase_core.dart';
+//import 'firebase_options.dart';
 
 // My imports
 import 'root_widget.dart';
@@ -7,6 +9,11 @@ import 'root_widget.dart';
 // void main() => runApp(BaseApp01()); // operador flecha de una instrucción
 
 /*Main*/
-void main(List<String> args) {
+//void main(List<String> args) {
+Future<void> main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp(
+  //  options: DefaultFirebaseOptions.currentPlatform,
+  //);
   runApp(const BaseApp01()); // nombre de la clase para instanciar
 }

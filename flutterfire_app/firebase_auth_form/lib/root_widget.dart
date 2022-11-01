@@ -2,9 +2,7 @@ import 'package:flutter/material.dart'; // cupertino -> no hay problema si es en
 
 // My imports
 import 'package:firebase_auth_form/pages/main_page/base_page.dart';
-
-//import 'catalogo.dart';
-//import 'ventana.dart';
+//import 'package:firebase_auth_form/profile/Login.dart';
 
 // Nombre clase
 class BaseApp01 extends StatelessWidget {
@@ -21,6 +19,7 @@ class BaseApp01 extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const BasePage(title: 'Test Counter'),
+      //home: const AuthGate(),
     );
   }
 }

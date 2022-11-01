@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 // My imports
+import 'package:firebase_auth_form/ui/bottom_nav_bar.dart';
+import 'package:firebase_auth_form/ui/logout_button.dart';
 import 'package:firebase_auth_form/imgs/logo/static_images.dart';
-import 'package:firebase_auth_form/pages/catalogue/catalogo.dart';
+
+// Body Widgets
+import 'package:firebase_auth_form/widgets/colored_counter.dart';
+import 'package:firebase_auth_form/pages/catalogue/grid/grid_view_stateless.dart';
+
+import 'package:firebase_auth_form/global.dart';
 
 class BasePage extends StatefulWidget {
   // Se crea la clase. Esta es un StatefulWidget
@@ -18,110 +25,63 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-  // clase -> StatefulWidget -> State
-  // Se crea el estado. Dentro del state se tiene el build
-  int _counter = 0;
-  final int _capacity = 50;
-  double _occupation = 0.0; // no hay float o single
-  Color bkThemeColor = Colors.green;
 
-  void _incrementCounter() {
+  //App Bar titles
+  List<String> appBarTitles = ["Home Page", "Catalogue Viewer", "Purchases"];
+
+  // List Widgets for body elements
+  final List<Widget> _bodyWidgets = [
+    const ColoredCounter(), //Container(color: Colors.red),
+    const GridPage(),//Container(color: Colors.orange),
+    Container(color: Colors.blue),
+  ];
+
+// Callback to update body state from child widget
+  void onItemTapped(int index) {
     setState(() {
-      _counter++;
-      if (_counter > 50) {
-        _counter = 50;
-      }
-      _occupation = _counter / _capacity * 100;
-
-      if (_occupation > 50) {
-        bkThemeColor = Colors.yellow;
-      }
-      if (_occupation > 80) {
-        bkThemeColor = Colors.redAccent;
-      }
+      page = index;
     });
   }
 
-  void _decrementCounter() {
+  void onLogoutTapped() {
     setState(() {
-      _counter--;
-      if (_counter < 0) {
-        _counter = 0;
-      }
-      _occupation = _counter / _capacity * 100;
-
-      if (_occupation < 80) {
-        bkThemeColor = Colors.yellow;
-      }
-      if (_occupation < 50) {
-        bkThemeColor = Colors.green;
-      }
+      //_signOut();
     });
   }
+
+  /*Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }*/
+
+  // shopping_cart shopping_cart_checkout add_shopping_cart 
 
   @override
   Widget build(BuildContext context) {
-    // El build tiene la parte gráfica
-    // BuildContext -> Object handler of the widget location
     return Scaffold(
-      // context -> framework -> The part of the UI represented by the widget
-      // Andamiaje por que se construye por capas
-      // LogoImg
-      appBar: AppBar(
-        //title: Text(widget.title),
-        title: const LogoImg(), // llamar el widget
-      ),
 
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              // const gives error when using variables
-              'Counter value: $_counter',
-            ),
-            Text('%$_occupation',
-                style: TextStyle(fontSize: 50, backgroundColor: bkThemeColor)
-                //Theme.of(context)
-                //   .textTheme
-                //    .headline4, //TextStyle() -> Constructor -> Color/Fontsize/backgroundColor
-                ),
-                const SizedBox(
-                  height: 40, //<-- SEE HERE
-                ),
-              ElevatedButton(
-                child: const Text('Catalogue'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Catalogo()),
-                  );
-                },
-              ),
+        // Update title string
+        appBar: AppBar(
+          title: LogoImg(titleString: appBarTitles[page]),
+          actions: [
+            LogoutButton(callback:onLogoutTapped),
           ],
         ),
-        
-      ),
 
-      floatingActionButton: Row(
-        // No puede estar otra vez "floatingActionButton:" en los children
-        children: <Widget>[
-          // childrens del widget en el contenedor row
-          FloatingActionButton(
-            // Esto es un fullstate widget no un evento -> Solo un widget
-            onPressed: _decrementCounter, // onPressed -> Callback function
-            tooltip: 'Decrement',
-            child: const Icon(Icons.exposure_minus_1),
-          ),
-          FloatingActionButton(
-            // Esto es un fullstate widget no un evento -> Solo un widget
-            onPressed: _incrementCounter, // onPressed -> Callback function
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );
+        drawer: const Drawer(
+        //child: PerfilPage(
+        //  uid: globals.uidLogin,
+        //  email: globals.idMail,
+        child: Text('Test'),
+        ),
+
+        body: _bodyWidgets[page], // Change body acording nav bar index
+
+        bottomNavigationBar: BottNavBar(
+          callback:
+              onItemTapped, // does not work "(int value) {onItemTapped;}""
+        )
+
+        // floatingActionButton is from the Scaffold constructor
+        );
   }
 }
