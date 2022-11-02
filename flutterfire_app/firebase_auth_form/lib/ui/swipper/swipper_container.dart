@@ -45,7 +45,7 @@ class SwipperContainer extends StatelessWidget {
               onIndexChanged:onIndexChanged,
               autoplay: true,
               layout: SwiperLayout.DEFAULT,
-              itemCount: 3, //carousels.length,
+              itemCount: carousels.length, //carousels.length,
               itemBuilder: (BuildContext context, index) {
                 return Container(
                   decoration: BoxDecoration(

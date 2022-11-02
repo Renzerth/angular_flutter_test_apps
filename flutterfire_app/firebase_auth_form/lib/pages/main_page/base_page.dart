@@ -35,16 +35,11 @@ class _BasePageState extends State<BasePage> {
   final List<Widget> _bodyWidgets = [
     const ColoredCounter(), //Container(color: Colors.red),
     const GridPage(),//Container(color: Colors.orange),
-    SwipperContainer(callback:onSwipperChange), //Container(color: Colors.blue), // cannot pass callbacks here
+    Container(color: Colors.blue), // cannot pass callbacks here
   ];
 
 
 // Callback to update body state from child widget
-
-  void onSwipperChange(int index) {
-    setState(() {
-    });
-  }
 
   void onItemTapped(int index) {
     setState(() {
@@ -61,8 +56,6 @@ class _BasePageState extends State<BasePage> {
   /*Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
   }*/
-
-  // shopping_cart shopping_cart_checkout add_shopping_cart 
 
   @override
   Widget build(BuildContext context) {
