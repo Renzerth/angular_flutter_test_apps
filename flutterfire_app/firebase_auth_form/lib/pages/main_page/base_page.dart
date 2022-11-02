@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 // My imports
 import 'package:firebase_auth_form/ui/bottom_nav_bar.dart';
-import 'package:firebase_auth_form/ui/logout_button.dart';
+import 'package:firebase_auth_form/ui/buttons/logout_button.dart';
 import 'package:firebase_auth_form/imgs/logo/static_images.dart';
 
 // Body Widgets
 import 'package:firebase_auth_form/widgets/colored_counter.dart';
 import 'package:firebase_auth_form/pages/catalogue/grid/grid_view_stateless.dart';
+import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
 
 import 'package:firebase_auth_form/global.dart';
 
@@ -30,13 +31,21 @@ class _BasePageState extends State<BasePage> {
   List<String> appBarTitles = ["Home Page", "Catalogue Viewer", "Purchases"];
 
   // List Widgets for body elements
+  
   final List<Widget> _bodyWidgets = [
     const ColoredCounter(), //Container(color: Colors.red),
     const GridPage(),//Container(color: Colors.orange),
-    Container(color: Colors.blue),
+    SwipperContainer(callback:onSwipperChange), //Container(color: Colors.blue), // cannot pass callbacks here
   ];
 
+
 // Callback to update body state from child widget
+
+  void onSwipperChange(int index) {
+    setState(() {
+    });
+  }
+
   void onItemTapped(int index) {
     setState(() {
       page = index;
@@ -65,6 +74,7 @@ class _BasePageState extends State<BasePage> {
           actions: [
             LogoutButton(callback:onLogoutTapped),
           ],
+          elevation: 0,
         ),
 
         drawer: const Drawer(

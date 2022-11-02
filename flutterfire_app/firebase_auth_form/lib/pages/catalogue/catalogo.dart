@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //My imports
 import 'package:firebase_auth_form/pages/catalogue/products/details.dart';
+import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
 
 class Catalogo extends StatefulWidget {
   const Catalogo({super.key});
@@ -11,10 +12,17 @@ class Catalogo extends StatefulWidget {
 }
 
 class _CatalogoState extends State<Catalogo> {
+
+  void onSwipperChange(int index) {
+    setState(() {
+    });
+  }
+
   static const listaProductos = <Widget>[
     Tab(
-      text: 'Tortas',
+      text: 'Gallery',
       icon: Icon(Icons.cloud_outlined),
+      //child: SwipperContainer(callback:onSwipperChange),
     ),
     Tab(
       text: 'Galletas',

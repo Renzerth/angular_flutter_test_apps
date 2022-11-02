@@ -12,7 +12,7 @@ class BaseApp01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Aircraft Catalogue',
       debugShowCheckedModeBanner:
           false, // Controla la etiqueta de "debugg" -> este es del Material -> Esta en el contenedor principal
       theme: ThemeData(
