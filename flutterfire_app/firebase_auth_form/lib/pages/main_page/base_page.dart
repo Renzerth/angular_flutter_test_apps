@@ -8,9 +8,10 @@ import 'package:firebase_auth_form/imgs/logo/static_images.dart';
 // Body Widgets
 import 'package:firebase_auth_form/widgets/colored_counter.dart';
 import 'package:firebase_auth_form/pages/catalogue/grid/grid_view_stateless.dart';
-import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
+//import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
 
 import 'package:firebase_auth_form/global.dart';
+
 
 class BasePage extends StatefulWidget {
   // Se crea la clase. Esta es un StatefulWidget

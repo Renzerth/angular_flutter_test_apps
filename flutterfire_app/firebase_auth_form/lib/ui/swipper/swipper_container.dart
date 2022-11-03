@@ -15,8 +15,8 @@ class SwipperContainer extends StatelessWidget {
   const SwipperContainer({super.key, required this.callback});
 
   void onIndexChanged(int index) {
-    callback(index); // update parent with received callback
     currentImg = index; // currentImg must be global
+    callback(currentImg); // update parent with received callback
   }
 
   List<T> map <T>(List list, Function handler){

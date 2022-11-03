@@ -8,3 +8,4 @@ bool isLoggedIn = false;
 // UI
 int page = 0;
 int currentImg = 0;
+//String currentPlane = "";

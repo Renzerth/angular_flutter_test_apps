@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth_form/pages/catalogue/products/details.dart';
 import 'package:firebase_auth_form/global.dart';
 
-import 'package:firebase_auth_form/ui/scroller/single_view.dart';
 import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
-import 'package:firebase_auth_form/ui/textborders/text_border.dart';
-
+import 'package:firebase_auth_form/ui/textcontainers/text_border.dart';
 
 class Catalogo extends StatefulWidget {
-  const Catalogo({super.key});
+  final String planeKey;
+  const Catalogo({super.key, required this.planeKey});
 
   @override
   State<Catalogo> createState() => _CatalogoState();
@@ -35,26 +34,21 @@ class _CatalogoState extends State<Catalogo> {
       Center(
         child: SingleChildScrollView(
           child: Column(
-
             children: [
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20,),
               SwipperContainer(callback: onSwipperChange),
-              const SizedBox(
-                height: 20,
-              ),
-              const BorderedTextBox()
+
+              const SizedBox(height: 20,),
+              BorderedTextBox(planeKey: widget.planeKey),// Pass key as parameter
             ],
           ),
         ),
       ),
 
       const Center(
-        child: DetailsPage(
-          producto: 'Galletas',
-        ),
+          child: DetailsPage(producto: 'Galletas'),
       ),
+
       const Center(
         child: DetailsPage(
           producto: 'Postres',
@@ -96,8 +90,7 @@ class _CatalogoState extends State<Catalogo> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Product Details'),
-          // ignore: prefer_const_constructors
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: listaProductos,
           ),
         ),
