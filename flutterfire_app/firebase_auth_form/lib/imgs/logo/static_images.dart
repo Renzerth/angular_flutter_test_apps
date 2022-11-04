@@ -14,17 +14,17 @@ class LogoImg extends StatelessWidget {
       children: [
         Column(
           children: const [
-            Icon(Icons.android, color: Colors.white, size: 30.0),
-            Text("Marca", style: TextStyle(fontSize: 30.0)),
+            Icon(Icons.airplane_ticket_outlined , color: Colors.white, size: 30.0),
+            Text("Sensorica", style: TextStyle(fontSize: 15.0)),
           ],
         ),
         // const Spacer(), // https://www.flutterbeads.com/space-between-widgets-in-flutter/
 
         const SizedBox(
-          width: 40, //<-- SEE HERE
+          width: 30, //<-- SEE HERE
         ),
 
-        Text(titleString, style: const TextStyle(fontSize: 30.0))
+        Text(titleString, style: const TextStyle(fontSize: 20.0))
       ],
     );
   }

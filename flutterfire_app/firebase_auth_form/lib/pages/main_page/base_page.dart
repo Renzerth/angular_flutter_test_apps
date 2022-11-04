@@ -6,9 +6,13 @@ import 'package:firebase_auth_form/ui/buttons/logout_button.dart';
 import 'package:firebase_auth_form/imgs/logo/static_images.dart';
 
 // Body Widgets
-import 'package:firebase_auth_form/widgets/colored_counter.dart';
+import 'package:firebase_auth_form/pages/home_page/home_page_after_login.dart';
 import 'package:firebase_auth_form/pages/catalogue/grid/grid_view_stateless.dart';
+import 'package:firebase_auth_form/pages/splash_screen/splash_page_stateless.dart';
+
+// Test Widgets
 //import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
+//import 'package:firebase_auth_form/widgets/colored_counter.dart';
 
 import 'package:firebase_auth_form/global.dart';
 
@@ -27,27 +31,43 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
-
-  //App Bar titles
+  //App Bar
+  late List<Widget> bodyWidgets;
   List<String> appBarTitles = ["Home Page", "Catalogue Viewer", "Purchases"];
 
-  // List Widgets for body elements
-  
-  final List<Widget> _bodyWidgets = [
-    const ColoredCounter(), //Container(color: Colors.red),
-    const GridPage(),//Container(color: Colors.orange),
-    Container(color: Colors.blue), // cannot pass callbacks here
-  ];
+  // Lazy init for SwipperContainer callback
+  @override
+  List<Widget> initState() {
+    super.initState();
 
+    // Swiper callback
+    void onSwiperIndxChange(int index) {
+      setState(() {
+        currentImg = index;
+      });
+    }
+
+    // List Widgets for body elements
+    bodyWidgets = <Widget>[
+      //const ColoredCounter(), //Container(color: Colors.red),
+      HomePageAL(callback: onSwiperIndxChange),
+      const GridPage(), //Container(color: Colors.orange),
+      Container(color: Colors.blue), // cannot pass callbacks
+    ];
+
+    return bodyWidgets;
+  }
 
 // Callback to update body state from child widget
 
+  // Nav Bar callback
   void onItemTapped(int index) {
     setState(() {
       page = index;
     });
   }
 
+  // Logout btn callback
   void onLogoutTapped() {
     setState(() {
       //_signOut();
@@ -61,31 +81,39 @@ class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
 
-        // Update title string
-        appBar: AppBar(
-          title: LogoImg(titleString: appBarTitles[page]),
-          actions: [
-            LogoutButton(callback:onLogoutTapped),
-          ],
-          elevation: 0,
-        ),
+      // Update title string
+      appBar: AppBar(
+        centerTitle: false,
+        title: LogoImg(titleString: appBarTitles[page]),
+        actions: [
+          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
+          const CircleAvatar(
+            minRadius: 8,
+            maxRadius: 18,
+            child: Icon(Icons.person, color: Colors.white, size: 30.0),
+          ),
+          LogoutButton(callback: onLogoutTapped),
+        ],
+        elevation: 0,
+      ),
 
-        drawer: const Drawer(
+      drawer: const Drawer(
         //child: PerfilPage(
         //  uid: globals.uidLogin,
         //  email: globals.idMail,
         child: Text('Test'),
-        ),
+      ),
 
-        body: _bodyWidgets[page], // Change body acording nav bar index
+      // Change body acording nav bar index
+      body: const SplashStatelessWidget(), //bodyWidgets[page],
 
-        bottomNavigationBar: BottNavBar(
-          callback:
-              onItemTapped, // does not work "(int value) {onItemTapped;}""
-        )
+      bottomNavigationBar: BottNavBar(
+        callback: onItemTapped, // does not work "(int value) {onItemTapped;}""
+      ),
 
-        // floatingActionButton is from the Scaffold constructor
-        );
+      // floatingActionButton is from the Scaffold constructor
+    );
   }
 }

@@ -7,12 +7,15 @@ import 'package:firebase_auth_form/ui/swipper/carousels_model.dart';
 import 'package:firebase_auth_form/global.dart';
 
 // Callbacks - > Blueprint
+
+// https://www.youtube.com/watch?v=WUUmD8s-5wY
 typedef IntCallback = void Function(int value);
 
 class SwipperContainer extends StatelessWidget {
+  final String planeKey;
   final IntCallback callback; // Receives funtion with "setState" to update parent
 
-  const SwipperContainer({super.key, required this.callback});
+  const SwipperContainer({super.key, required this.callback, required this.planeKey});
 
   void onIndexChanged(int index) {
     currentImg = index; // currentImg must be global
@@ -29,6 +32,12 @@ class SwipperContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // Make display imagee list
+    List<Map<String,String>> carouselsData = CarouselModel.getImgDirs(planeKey);
+    List<CarouselModel> carousels =
+      carouselsData.map((item) => CarouselModel(item['image'] ?? "",)).toList();
+
     return Container(
       alignment: Alignment.centerLeft,
       margin: const EdgeInsets.only(left: 16, right: 16),

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class TextWrapperBox extends StatelessWidget {
   final String textToWrapp;
+  final double wrapScale;
 
-  const TextWrapperBox({super.key, required this.textToWrapp});
+  const TextWrapperBox({super.key, required this.textToWrapp, required this.wrapScale});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.75,
+      width: MediaQuery.of(context).size.width * wrapScale,
       child: Text(
         textToWrapp,
         style: const TextStyle(

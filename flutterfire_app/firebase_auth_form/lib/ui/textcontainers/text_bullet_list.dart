@@ -7,13 +7,16 @@ class BulletList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(left:8, bottom: 10),
+      //padding: const EdgeInsets.all(5),
       child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
         children: strList.map((strone) {
           return Row(children: [
             const Text(
               "• ",
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 16),
             ), //bullet text
             const SizedBox(
               width: 10,
@@ -21,7 +24,7 @@ class BulletList extends StatelessWidget {
             Container(
               child: Text(
                 strone,
-                style: const TextStyle(fontSize: 30),
+                style: const TextStyle(fontSize: 16),
               ), //text
             )
           ]);

@@ -11,6 +11,7 @@ import 'root_widget.dart';
 /*Main*/
 //void main(List<String> args) {
 // needs to add --no-sound-null-safety
+
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   //await Firebase.initializeApp(
