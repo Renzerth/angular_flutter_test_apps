@@ -35,12 +35,12 @@ class _GridPageState extends State<GridPage> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     color: Colors.green[100],
-                    child: const GridElement(),
+                    child: const GridElement(buttonName: 'su_47',),
                   ),
                   Container(
                     padding: const EdgeInsets.all(8),
                     color: Colors.green[200],
-                    child: const Text('Heed not the rabble'),
+                    child: const GridElement(buttonName: 'f_15',),
                   ),
                   Container(
                     padding: const EdgeInsets.all(8),

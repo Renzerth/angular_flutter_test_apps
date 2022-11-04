@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 // My Imports
 import 'package:firebase_auth_form/pages/catalogue/catalogo.dart';
 
+// My Classes
+import 'package:firebase_auth_form/pages/catalogue/products/urldata/images.dart';
+
+
 class GridElement extends StatelessWidget {
-  const GridElement({super.key});
+  final String buttonName;
+  const GridElement({super.key, required this.buttonName});
 
   // static double _elementSize = 30; // conflicts if children is constant
   // https://api.flutter.dev/flutter/widgets/Stack-class.html
@@ -12,6 +17,9 @@ class GridElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var textData = GridTextData.getGridDetails()[buttonName];
+    
     return SizedBox(
       //width: 250,
       //height: 250,
@@ -44,7 +52,7 @@ class GridElement extends StatelessWidget {
                 FittedBox(
                   fit: BoxFit.fill,
                   child: Image.network(
-                    "https://gamingbolt.com/wp-content/uploads/2018/08/Ace-Combat-7-48.jpg", // Image.asset('foo.png'),
+                    textData["urlimage"], // Image.asset('foo.png'),
                     //height: 200,
                     //width: 200,
                   ),
@@ -54,9 +62,9 @@ class GridElement extends StatelessWidget {
                   height: 10,
                 ),
 
-                const Text(
-                  'Foreground Text',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                Text(
+                  textData["name"],
+                  style: const TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
 
                 const SizedBox(
@@ -68,7 +76,7 @@ class GridElement extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Catalogo()),
+                    MaterialPageRoute(builder: (context) => Catalogo(planeKey: buttonName)),
                   );
                 },
               ),

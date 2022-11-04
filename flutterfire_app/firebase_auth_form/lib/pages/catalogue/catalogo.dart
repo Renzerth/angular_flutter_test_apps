@@ -1,61 +1,84 @@
 import 'package:flutter/material.dart';
 
 //My imports
+
 import 'package:firebase_auth_form/pages/catalogue/products/details.dart';
+import 'package:firebase_auth_form/global.dart';
+
 import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
+import 'package:firebase_auth_form/ui/textcontainers/text_border.dart';
 
 class Catalogo extends StatefulWidget {
-  const Catalogo({super.key});
+  final String planeKey;
+  const Catalogo({super.key, required this.planeKey});
 
   @override
   State<Catalogo> createState() => _CatalogoState();
 }
 
 class _CatalogoState extends State<Catalogo> {
+  late List<Widget> listaPaginas; // lazy init for widgets list
 
-  void onSwipperChange(int index) {
-    setState(() {
-    });
+  // Lazy init for SwipperContainer collabck
+  @override
+  List<Widget> initState() {
+    super.initState();
+
+    void onSwipperChange(int index) {
+      setState(() {
+        currentImg = index;
+      });
+    }
+
+    listaPaginas = <Widget>[
+      Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 20,),
+              SwipperContainer(callback: onSwipperChange),
+
+              const SizedBox(height: 20,),
+              BorderedTextBox(planeKey: widget.planeKey),// Pass key as parameter
+            ],
+          ),
+        ),
+      ),
+
+      const Center(
+          child: DetailsPage(producto: 'Galletas'),
+      ),
+
+      const Center(
+        child: DetailsPage(
+          producto: 'Postres',
+        ),
+      ),
+      const Center(
+        child: DetailsPage(
+          producto: 'Pasteles',
+        ),
+      ),
+    ];
+    return listaPaginas;
   }
 
   static const listaProductos = <Widget>[
     Tab(
-      text: 'Gallery',
-      icon: Icon(Icons.cloud_outlined),
-      //child: SwipperContainer(callback:onSwipperChange),
+      text: 'Overview',
+      icon: Icon(Icons.image_outlined),
     ),
     Tab(
-      text: 'Galletas',
-      icon: Icon(Icons.beach_access_sharp),
+      text: 'Specifications',
+      icon: Icon(Icons.developer_board),
     ),
     Tab(
-      text: 'Postres',
-      icon: Icon(Icons.brightness_5_sharp),
+      text: 'Performance',
+      icon: Icon(Icons.dashboard),
     ),
     Tab(
-      text: 'Pasteles',
-      icon: Icon(Icons.android),
-    ),
-  ];
-
-  static const listaPaginas = <Widget>[
-    Center(
-      child: DetailsPage(producto: 'Tortas'),
-    ),
-    Center(
-      child: DetailsPage(
-        producto: 'Galletas',
-      ),
-    ),
-    Center(
-      child: DetailsPage(
-        producto: 'Postres',
-      ),
-    ),
-    Center(
-      child: DetailsPage(
-        producto: 'Pasteles',
-      ),
+      text: 'Buy it!',
+      icon: Icon(Icons.add_shopping_cart),
     ),
   ];
 
@@ -67,12 +90,11 @@ class _CatalogoState extends State<Catalogo> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Product Details'),
-          // ignore: prefer_const_constructors
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: listaProductos,
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: listaPaginas,
         ),
       ),
