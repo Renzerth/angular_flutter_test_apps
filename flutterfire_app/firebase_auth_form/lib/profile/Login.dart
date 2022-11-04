@@ -17,9 +17,7 @@ class AuthGate extends StatelessWidget {
         if (!snapshot.hasData) {
           return const SignInScreen(providerConfigs: [
             EmailProviderConfiguration(),
-            GoogleProviderConfiguration(
-                clientId:
-                    ''),
+            GoogleProviderConfiguration(clientId: ''),
           ]);
         }
 

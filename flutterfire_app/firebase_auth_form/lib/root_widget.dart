@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart'; // cupertino -> no hay problema si es en web. Si es android -> material
 
 // My imports
-import 'package:firebase_auth_form/pages/main_page/base_page.dart';
+import 'pages/splash_screen/splash_page.dart';
 //import 'package:firebase_auth_form/profile/Login.dart';
 
 // Nombre clase
@@ -18,8 +18,8 @@ class BaseApp01 extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const BasePage(title: 'Test Counter'),
-      //home: const AuthGate(),
+      //home: const BasePage(title: 'Test Counter'),
+      home: const SplashPage(title: 'Aircraft Catalogue'),
     );
   }
 }
