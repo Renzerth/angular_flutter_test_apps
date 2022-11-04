@@ -18,7 +18,7 @@ class Catalogo extends StatefulWidget {
   State<Catalogo> createState() => _CatalogoState();
 }
 
-class _CatalogoState extends State<Catalogo> with SingleTickerProviderStateMixin {
+class _CatalogoState extends State<Catalogo> with TickerProviderStateMixin { // SingleTickerProviderStateMixin
   late List<Widget> listaPaginas; // lazy init for widgets list
   //late String planeKey = widget.planeKey; // Init here fore scope
   late TabController _tabController;

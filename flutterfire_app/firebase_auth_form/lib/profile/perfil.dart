@@ -111,12 +111,12 @@ class _PerfilPageState extends State<PerfilPage> {
               SingleChildScrollView(
             child: Column(
               children: [
-                Text(
+                const Text(
                   "Perfil",
                   style: TextStyle(fontSize: 50.0),
                 ),
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: nombreController,
                       decoration: const InputDecoration(
@@ -128,7 +128,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       },
                     )),
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: edadController,
                       decoration: const InputDecoration(
@@ -141,7 +141,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     )),
 
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: emailController,
                       decoration: const InputDecoration(
@@ -154,7 +154,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     )),
 
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: telefonoController,
                       decoration: const InputDecoration(
@@ -167,7 +167,7 @@ class _PerfilPageState extends State<PerfilPage> {
                     )),
 
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: ciudadController,
                       decoration: const InputDecoration(
@@ -179,7 +179,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       },
                     )),
                 Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
                     child: TextField(
                       controller: direccionController,
                       decoration: const InputDecoration(

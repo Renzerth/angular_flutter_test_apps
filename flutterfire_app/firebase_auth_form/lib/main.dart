@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-//import 'package:firebase_core/firebase_core.dart';
-//import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // My imports
+import 'firebase_options.dart';
 import 'root_widget.dart';
-// import 'package:firebase_auth_form/pages/main_page/base_app.dart';
 
 // void main() => runApp(BaseApp01()); // operador flecha de una instrucción
+//void main(List<String> args) {}
 
 /*Main*/
-//void main(List<String> args) {
 // needs to add --no-sound-null-safety
-
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp(
-  //  options: DefaultFirebaseOptions.currentPlatform,
-  //);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const BaseApp01()); // nombre de la clase para instanciar
 }

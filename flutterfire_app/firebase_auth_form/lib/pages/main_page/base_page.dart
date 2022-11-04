@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 // My imports
 import 'package:firebase_auth_form/ui/bottom_nav_bar.dart';
 import 'package:firebase_auth_form/ui/buttons/logout_button.dart';
 import 'package:firebase_auth_form/imgs/logo/static_images.dart';
+
+import 'package:firebase_auth_form/profile/perfil.dart';
 
 // Body Widgets
 import 'package:firebase_auth_form/pages/home_page/home_page_after_login.dart';
@@ -15,7 +18,6 @@ import 'package:firebase_auth_form/pages/splash_screen/splash_page_stateless.dar
 //import 'package:firebase_auth_form/widgets/colored_counter.dart';
 
 import 'package:firebase_auth_form/global.dart';
-
 
 class BasePage extends StatefulWidget {
   // Se crea la clase. Esta es un StatefulWidget
@@ -70,13 +72,13 @@ class _BasePageState extends State<BasePage> {
   // Logout btn callback
   void onLogoutTapped() {
     setState(() {
-      //_signOut();
+      _signOut();
     });
   }
 
-  /*Future<void> _signOut() async {
+  Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,15 +101,16 @@ class _BasePageState extends State<BasePage> {
         elevation: 0,
       ),
 
-      drawer: const Drawer(
-        //child: PerfilPage(
-        //  uid: globals.uidLogin,
-        //  email: globals.idMail,
-        child: Text('Test'),
+      drawer: Drawer(
+        child: PerfilPage(
+          uid: uidLogin,
+          email: idMail,
+          //child: const Text('Test'),
+        ),
       ),
 
       // Change body acording nav bar index
-      body: const SplashStatelessWidget(), //bodyWidgets[page],
+      body: bodyWidgets[page],
 
       bottomNavigationBar: BottNavBar(
         callback: onItemTapped, // does not work "(int value) {onItemTapped;}""

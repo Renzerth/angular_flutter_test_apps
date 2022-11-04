@@ -22,8 +22,8 @@ class BaseApp01 extends StatelessWidget {
       ),
 
       //home: const BasePage(title: 'Aircraft Catalogue'),
-      home: const SplashStatefulWidget(),
       //home: const AuthGate(),
+      home: const SplashStatefulWidget(),
     );
   }
 }

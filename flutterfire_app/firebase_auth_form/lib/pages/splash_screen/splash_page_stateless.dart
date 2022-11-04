@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // My imports
 import 'package:firebase_auth_form/pages/splash_screen/splash_info_page.dart';
+import 'package:firebase_auth_form/profile/login_gate.dart';
 
 class SplashStatelessWidget extends StatelessWidget {
   const SplashStatelessWidget({super.key});
@@ -41,7 +42,13 @@ class SplashStatelessWidget extends StatelessWidget {
             const SizedBox(height: 30),
             ElevatedButton(
               style: style2,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AuthGate()),
+                );
+              },
               child: const Text('Login'),
             ),
           ],
