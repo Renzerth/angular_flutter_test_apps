@@ -1,3 +1,4 @@
+import 'package:firebase_auth_form/widgets/forms/stepper/form_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,9 +12,9 @@ import 'package:firebase_auth_form/profile/perfil.dart';
 // Body Widgets
 import 'package:firebase_auth_form/pages/home_page/home_page_after_login.dart';
 import 'package:firebase_auth_form/pages/catalogue/grid/grid_view_stateless.dart';
-import 'package:firebase_auth_form/pages/splash_screen/splash_page_stateless.dart';
 
 // Test Widgets
+//import 'package:firebase_auth_form/pages/splash_screen/splash_page_stateless.dart';
 //import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
 //import 'package:firebase_auth_form/widgets/colored_counter.dart';
 
@@ -54,7 +55,8 @@ class _BasePageState extends State<BasePage> {
       //const ColoredCounter(), //Container(color: Colors.red),
       HomePageAL(callback: onSwiperIndxChange),
       const GridPage(), //Container(color: Colors.orange),
-      Container(color: Colors.blue), // cannot pass callbacks
+      //Container(color: Colors.blue),
+      const FormPage()
     ];
 
     return bodyWidgets;

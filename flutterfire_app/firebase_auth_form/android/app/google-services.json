@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "774752722152",
+    "project_id": "fire-base-todo-test",
+    "storage_bucket": "fire-base-todo-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774752722152:android:2cc3be1acf1c40025c7d5d",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth_form"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774752722152-fboslgonm3qisr625rch1dr7338pp45c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuON5YdNEHjQ2xqRV0-fdCgncHeCi6maI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774752722152-fboslgonm3qisr625rch1dr7338pp45c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

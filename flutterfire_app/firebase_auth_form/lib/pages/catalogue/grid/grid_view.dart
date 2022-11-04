@@ -40,12 +40,12 @@ class _GridPageState extends State<GridPage> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     color: Colors.green[200],
-                    child: const GridElement(buttonName: 'f_15',),
+                    child: const GridElement(buttonName: 'f_15',), 
                   ),
                   Container(
                     padding: const EdgeInsets.all(8),
                     color: Colors.green[300],
-                    child: const Text('Sound of screams but the'),
+                    child: const GridElement(buttonName: 'f_22',),
                   ),
                   Container(
                     padding: const EdgeInsets.all(8),

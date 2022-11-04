@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=WUUmD8s-5wY
+
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -7,8 +9,6 @@ import 'package:firebase_auth_form/ui/swipper/carousels_model.dart';
 import 'package:firebase_auth_form/global.dart';
 
 // Callbacks - > Blueprint
-
-// https://www.youtube.com/watch?v=WUUmD8s-5wY
 typedef IntCallback = void Function(int value);
 
 class SwipperContainer extends StatelessWidget {

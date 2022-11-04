@@ -53,6 +53,7 @@ class GridElement extends StatelessWidget {
                   fit: BoxFit.fill,
                   child: Image.network(
                     textData["urlimage"], // Image.asset('foo.png'),
+                    scale: 1,
                     //height: 200,
                     //width: 200,
                   ),

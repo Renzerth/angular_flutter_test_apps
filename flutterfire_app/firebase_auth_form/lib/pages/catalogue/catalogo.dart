@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 //My imports
 import 'package:firebase_auth_form/global.dart';
 import 'package:firebase_auth_form/ui/swipper/swipper_container.dart';
+import 'package:firebase_auth_form/widgets/forms/stepper/list_view.dart';
 
 import 'package:firebase_auth_form/pages/catalogue/products/tab_widgets/overview_page.dart';
 import 'package:firebase_auth_form/pages/catalogue/products/tab_widgets/details_page.dart';
@@ -35,6 +35,11 @@ class _CatalogoState extends State<Catalogo> with TickerProviderStateMixin { // 
     }
 
     void onAddBtnPressed(int index) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const FormPage()),
+      );
     }
 
     void onBuyBtnPressed() {
@@ -69,8 +74,8 @@ class _CatalogoState extends State<Catalogo> with TickerProviderStateMixin { // 
         child: PerfmsPage(planeKey: planeKey),
       ),
 
-      Center(
-        child: DetailsPage(planeKey: planeKey, callbackMoreBtn: onMoreBtnPressed),
+      const Center(
+        child: FormPage(),
       ),
     ];
 

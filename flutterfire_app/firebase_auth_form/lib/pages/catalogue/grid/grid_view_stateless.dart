@@ -11,49 +11,61 @@ class GridPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-          primary: false,
-          slivers: <Widget>[
-            SliverPadding(
-              padding: const EdgeInsets.all(10),
-              sliver: SliverGrid.count(
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5,
-                crossAxisCount: 2,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[100],
-                    child: const GridElement(buttonName: 'su_47',),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[200],
-                    child: const GridElement(buttonName: 'f_15',),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[300],
-                    child: const Text('Sound of screams but the'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[400],
-                    child: const Text('Who scream'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[500],
-                    child: const Text('Revolution is coming...'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[600],
-                    child: const Text('Revolution, they...'),
-                  ),
-                ],
+      primary: false,
+      slivers: <Widget>[
+        SliverPadding(
+          padding: const EdgeInsets.all(10),
+          sliver: SliverGrid.count(
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
+            crossAxisCount: 2,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[100],
+                child: const GridElement(
+                  buttonName: 'su_47',
+                ),
               ),
-            ),
-          ],
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[200],
+                child: const GridElement(
+                  buttonName: 'f_15',
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[300],
+                child: const GridElement(
+                  buttonName: 'f_22',
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[400],
+                child: const GridElement(
+                  buttonName: 'f_18',
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[500],
+                child: const GridElement(
+                  buttonName: 'mig_29',
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                color: Colors.green[600],
+                child: const GridElement(
+                  buttonName: 'su_35',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
